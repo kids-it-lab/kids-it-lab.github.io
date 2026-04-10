@@ -1,278 +1,953 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>キッズITラボ | 和泉市・発達障害の子向けプロPC教室</title>
-    <style>
-        /* --- WinSchool風 配色＆スタイル定義 --- */
-        :root {
-            --win-blue: #0077c8; /* WinSchoolに近い、明るい青 */
-            --win-pink: #e4007f; /* WinSchoolのアクセントカラー、ピンク */
-            --bg-light-blue: #e6f7ff; /* さわやかな薄青背景 */
-            --text-color: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キッズITラボ | 発達障害のある子ども向けPC教室（泉州エリア）</title>
+  <meta name="description" content="高石市・和泉市・泉大津市・忠岡町・岸和田市対応。発達障害のある子ども向けのPC個別訪問レッスン。タイピングからSalesforce資格取得レベルまで対応。土日祝日のみ受付中。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-50: #EEEDFE;
+      --purple-200: #AFA9EC;
+      --purple-600: #534AB7;
+      --purple-800: #3C3489;
+      --purple-900: #26215C;
+      --teal-50: #E1F5EE;
+      --teal-400: #1D9E75;
+      --teal-600: #0F6E56;
+      --teal-800: #085041;
+      --teal-100: #9FE1CB;
+      --coral-50: #FAECE7;
+      --blue-50: #E6F1FB;
+      --amber-50: #FAEEDA;
+      --amber-800: #633806;
+      --gray-100: #f8f7f5;
+      --gray-200: #eeede8;
+      --gray-400: #b4b2a9;
+      --gray-600: #5f5e5a;
+      --text-main: #1a1917;
+      --text-sub: #5f5e5a;
+      --text-hint: #9a9890;
+      --border: rgba(0,0,0,0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --font-main: 'Noto Sans JP', sans-serif;
+      --font-display: 'Zen Kaku Gothic New', sans-serif;
+    }
 
-        body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    html { scroll-behavior: smooth; }
 
-        /* --- ヘッダー風の大きなトップ（メインビジュアル） --- */
-        .hero {
-            background: linear-gradient(135deg, #fff 0%, var(--bg-light-blue) 100%);
-            padding: 100px 0;
-            text-align: center;
-            border-bottom: 5px solid var(--win-blue);
-        }
+    body {
+      font-family: var(--font-main);
+      color: var(--text-main);
+      background: #fff;
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .hero h1 {
-            font-size: 3.5em;
-            color: var(--win-blue);
-            margin: 0;
-            font-weight: bold;
-            letter-spacing: 0.05em;
-        }
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5vw;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--purple-600);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-logo span { color: var(--teal-400); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--purple-600); }
+    .nav-cta {
+      background: var(--purple-600);
+      color: #fff !important;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .nav-cta:hover { background: var(--purple-800); color: #fff !important; }
 
-        .hero p {
-            font-size: 1.5em;
-            color: #555;
-            margin: 20px 0 0;
-        }
+    /* ===== HERO ===== */
+    .hero {
+      padding: 80px 5vw 70px;
+      background: linear-gradient(160deg, var(--purple-50) 0%, #fff 50%, var(--teal-50) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: var(--purple-50);
+      opacity: 0.6;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: var(--teal-50);
+      opacity: 0.7;
+    }
+    .hero-inner {
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--purple-50);
+      border: 1px solid var(--purple-200);
+      color: var(--purple-800);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--purple-600);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.25;
+      color: var(--purple-900);
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--teal-400);
+    }
+    .hero-lead {
+      font-size: 15px;
+      color: var(--text-sub);
+      max-width: 520px;
+      margin-bottom: 36px;
+      line-height: 1.9;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--purple-600);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--purple-800); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--purple-600);
+      border: 1.5px solid var(--purple-600);
+      padding: 12px 26px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--purple-50); }
 
-        /* ここに画像を挿入する想定（WinSchoolのように） */
-        .hero-img {
-            margin-top: 50px;
-            max-width: 80%;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            /* 実物を入れるまでは灰色背景 */
-            background-color: #ccc;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.5em;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    /* ===== SECTION COMMON ===== */
+    section { padding: 64px 5vw; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-600);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 900;
+      color: var(--purple-900);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-bottom: 36px;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--gray-200);
+      margin: 0 5vw;
+    }
 
-        /* --- セクション共通（余白を広くとる） --- */
-        section {
-            padding: 80px 0;
-        }
+    /* ===== MESSAGE ===== */
+    .message-section { background: var(--gray-100); }
+    .message-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      max-width: 680px;
+      position: relative;
+    }
+    .message-box::before {
+      content: '\201C';
+      font-family: Georgia, serif;
+      font-size: 72px;
+      color: var(--purple-200);
+      line-height: 1;
+      position: absolute;
+      top: 16px; left: 24px;
+    }
+    .message-box p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 16px;
+      padding-top: 24px;
+    }
+    .message-box p:last-of-type { margin-bottom: 20px; }
+    .message-name {
+      font-size: 13px;
+      color: var(--purple-600);
+      font-weight: 500;
+    }
 
-        h2 {
-            font-size: 2.5em;
-            text-align: center;
-            color: var(--win-blue);
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-        }
+    /* ===== COURSES ===== */
+    .course-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 760px;
+    }
+    .course-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .course-item:hover {
+      border-color: var(--purple-200);
+      box-shadow: 0 2px 12px rgba(83,74,183,0.06);
+    }
+    .course-item.goal {
+      border-color: var(--purple-200);
+      background: var(--purple-50);
+    }
+    .course-badge {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .badge-beginner { background: var(--teal-50); color: var(--teal-800); }
+    .badge-advanced { background: var(--purple-50); color: var(--purple-800); }
+    .badge-goal { background: var(--amber-50); color: var(--amber-800); }
+    .course-body h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--text-main);
+    }
+    .course-body p {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+    .code-tag {
+      display: inline-block;
+      background: var(--gray-200);
+      color: var(--gray-600);
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      padding: 1px 7px;
+      border-radius: 4px;
+      margin: 0 2px;
+    }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--win-pink);
-            border-radius: 2px;
-        }
+    /* ===== PRICING ===== */
+    .pricing-section { background: var(--gray-100); }
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      max-width: 780px;
+    }
+    .price-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+    }
+    .price-card-label {
+      font-size: 11px;
+      color: var(--text-hint);
+      margin-bottom: 6px;
+    }
+    .price-card-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--purple-600);
+      line-height: 1;
+    }
+    .price-amount sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-sub);
+      vertical-align: baseline;
+    }
+    .price-monthly {
+      font-size: 12px;
+      color: var(--text-hint);
+      margin: 6px 0 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .price-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .price-items li {
+      font-size: 13px;
+      color: var(--text-sub);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .price-items li::before {
+      content: '✓';
+      color: var(--teal-400);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .price-note {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.8;
+      max-width: 780px;
+    }
+    .price-note strong { color: var(--text-main); font-weight: 700; }
 
-        /* --- カードスタイル（「やること」セクション） --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    /* ===== AREA ===== */
+    .area-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      max-width: 620px;
+    }
+    .area-desc {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-bottom: 18px;
+    }
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .area-tag {
+      background: var(--teal-50);
+      color: var(--teal-800);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--teal-100);
+    }
+    .area-tag.consult {
+      background: #fff;
+      color: var(--text-sub);
+      border-style: dashed;
+      border-color: var(--gray-400);
+    }
+    .area-note {
+      font-size: 12px;
+      color: var(--text-hint);
+      line-height: 1.7;
+    }
 
-        .card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            transition: transform 0.3s;
-        }
+    /* ===== VISIT ===== */
+    .visit-section { background: var(--teal-50); }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      max-width: 760px;
+    }
+    .visit-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      border: 1px solid rgba(29,158,117,0.15);
+    }
+    .visit-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--teal-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .visit-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .visit-card p {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--win-blue);
-        }
+    /* ===== PROFILE ===== */
+    .profile-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      max-width: 680px;
+    }
+    .profile-head {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+    .avatar {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--purple-50);
+      border: 2px solid var(--purple-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--purple-800);
+      flex-shrink: 0;
+    }
+    .profile-head-info h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .profile-head-info p {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-top: 3px;
+    }
+    .profile-text {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-tag {
+      background: var(--purple-50);
+      color: var(--purple-800);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .profile-note {
+      border-left: 3px solid var(--purple-200);
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: var(--purple-50);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
 
-        .card h3 {
-            color: var(--win-blue);
-            font-size: 1.5em;
-            margin-top: 0;
-            border-bottom: 2px solid var(--bg-light-blue);
-            padding-bottom: 10px;
-        }
+    /* ===== FLOW ===== */
+    .flow-section { background: var(--gray-100); }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      max-width: 760px;
+    }
+    .flow-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px 18px;
+      position: relative;
+    }
+    .flow-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--purple-600);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .flow-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 5px;
+    }
+    .flow-item p {
+      font-size: 12px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
 
-        /* --- プロフィール（経歴）を視覚的にリッチにする --- */
-        .profile-section {
-            background-color: var(--bg-light-blue);
-        }
+    /* ===== CONTACT ===== */
+    .contact-section {
+      background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-600) 100%);
+      text-align: center;
+      padding: 72px 5vw;
+    }
+    .contact-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .contact-section p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--purple-800);
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .contact-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 18px;
+    }
 
-        .profile-box {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--purple-900);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 24px 5vw;
+      font-size: 12px;
+      line-height: 1.8;
+    }
 
-        .profile-icon {
-            font-size: 6em;
-            color: var(--win-blue);
-            /* 実物を入れるまではアイコン */
-        }
-
-        .skill-tags {
-            margin-top: 20px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: var(--win-blue);
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        /* --- お問い合わせ（WinSchool風マゼンタボタン） --- */
-        .cta-section {
-            text-align: center;
-            background-color: #fff;
-        }
-
-        .btn-cta {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff0080 0%, var(--win-pink) 100%);
-            color: #fff;
-            padding: 20px 50px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.5em;
-            box-shadow: 0 5px 15px rgba(228, 0, 127, 0.3);
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-
-        .btn-cta:hover {
-            box-shadow: 0 8px 25px rgba(228, 0, 127, 0.5);
-            transform: translateY(-2px);
-        }
-
-        /* --- レスポンシブ対応 --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5em; }
-            .hero p { font-size: 1.2em; }
-            .profile-box { flex-direction: column; text-align: center; }
-            h2 { font-size: 2em; }
-        }
-    </style>
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      nav { padding: 0 4vw; }
+      .nav-links { display: none; }
+      section { padding: 48px 5vw; }
+      .message-box { padding: 28px 20px; }
+      .price-grid { grid-template-columns: 1fr; }
+      .flow-steps { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 56px 5vw 52px; }
+    }
+  </style>
 </head>
 <body>
 
-<header class="hero">
-    <div class="container">
-        <h1>キッズITラボ</h1>
-        <p>和泉市で学ぶ、発達障害のお子様のためのプロPC教室。</p>
-        <p>「好きなこと」を「将来の武器」に。</p>
-        <div class="hero-img">[ここに笑顔の講師とお子様の写真を入れます]</div>
+  <!-- ナビゲーション -->
+  <nav>
+    <a href="#" class="nav-logo">🖥 キッズ<span>IT</span>ラボ</a>
+    <ul class="nav-links">
+      <li><a href="#courses">コース</a></li>
+      <li><a href="#pricing">料金</a></li>
+      <li><a href="#area">対応エリア</a></li>
+      <li><a href="#profile">講師紹介</a></li>
+      <li><a href="#contact" class="nav-cta">無料相談</a></li>
+    </ul>
+  </nav>
+
+  <!-- ヒーロー -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">発達障害のあるお子様専門 ／ 土日祝・ご自宅への訪問個別レッスン</div>
+      <h1>ITで広がる、<br><em>あなただけの可能性</em></h1>
+      <p class="hero-lead">
+        わが子も発達障害。だから分かる、一人ひとりに合った関わり方。<br>
+        安心できる環境で、将来につながるITスキルを一緒に育てます。
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">無料相談を申し込む</a>
+        <a href="#courses" class="btn-outline">コース・料金を見る</a>
+      </div>
     </div>
-</header>
+  </div>
 
-<div class="container">
-
-    <section id="about">
-        <p style="font-size: 1.2em; text-align: center; max-width: 800px; margin: 0 auto;">
-            キッズITラボでは、お子様の特性に合わせて、パソコンの基本操作から、将来仕事で役立つ本格的なITスキル（ReactやPHP、Salesforceなど）までを個別に指導します。<br><br>
-            「集中力が続かない」「コミュニケーションが苦手」そんなお子様でも、ITの世界なら、自分のペースで輝くことができます。
-        </p>
-    </section>
-
-    <section id="program">
-        <h2>こんなことをやります</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>タイピング練習</h3>
-                <p>全ての基本となるタイピング。ゲーム感覚の独自カリキュラムで、楽しみながらタッチタイピングをマスターします。</p>
-            </div>
-            <div class="card">
-                <h3>PCの基本＆リテラシー</h3>
-                <p>フォルダ操作、ネット検索、メール、そしてセキュリティ知識。現代社会で必須の「身を守る力」も教えます。</p>
-            </div>
-            <div class="card">
-                <h3>将来のITスキル</h3>
-                <p>Word/Excel活用から、簡単なプログラミング、Salesforceのようなビジネスツールの基礎まで。プロの講師だから教えられる内容です。</p>
-            </div>
-        </div>
-    </section>
-
-</div>
-
-<section id="teacher" class="profile-section">
-    <div class="container">
-        <h2>講師の経験</h2>
-        <div class="profile-box">
-            <div class="profile-icon">👨‍💻</div>
-            <div>
-                <h3>IT業界歴 5年、実務を知るプロが指導</h3>
-                <p>ReactやPHPを使った本格的なシステム開発（1年8カ月）、Salesforceの運用保守（1年半）、VBA、VB.net、Excel関数といった実務で必須のスキルを網羅しています。<br>
-                趣味のPC教室では教えられない、**「本当に仕事で使われている技術」**を、お子様のペースに合わせて丁寧に伝えます。</p>
-                <div class="skill-tags">
-                    <span class="tag">React / PHP</span>
-                    <span class="tag">Salesforce（運用保守）</span>
-                    <span class="tag">VBA / Excel関数</span>
-                    <span class="tag">VB.net</span>
-                    <span class="tag">実務経験5年+</span>
-                </div>
-            </div>
-        </div>
+  <!-- メッセージ -->
+  <section class="message-section">
+    <div class="section-label">Message</div>
+    <div class="section-title">講師からのメッセージ</div>
+    <div class="section-sub">なぜこの教室を始めたのか</div>
+    <div class="message-box">
+      <p>
+        私自身の子供も発達障害があります。子育てを通じて感じてきた「この子の得意なことを、もっと伸ばせる場所があれば」という思い。IT業界で5年間培ってきたスキルと、わが子への理解を合わせて、同じ悩みを持つご家族のお役に立てればと思い、この教室を始めました。
+      </p>
+      <p>
+        発達障害のある子どもは、興味を持てた分野で驚くほどの集中力を発揮することがあります。ITはそんな力がとても活きる分野です。
+      </p>
+      <div class="message-name">— キッズITラボ 講師</div>
     </div>
-</section>
+  </section>
 
-<div class="container">
+  <hr class="divider">
 
-    <section id="cases">
-        <h2>実績（指導レポート）</h2>
-        <div class="card" style="text-align: center; background-color: #fffcf5; border-color: #ffe699;">
-            <p style="font-size: 1.2em;"><strong>現在、第1号の生徒様（娘様のお友達）への指導を開始予定です！</strong><br>
-            発達障害（軽度）のお子様に、タイピングの基礎から丁寧に教えていきます。<br>
-            「できない」が「できた！」に変わる瞬間を、こちらでレポートしていきます。</p>
+  <!-- コース -->
+  <section id="courses">
+    <div class="section-label">Courses</div>
+    <div class="section-title">コース内容</div>
+    <div class="section-sub">初めてのお子様から、資格取得を目指す方まで段階的にサポートします</div>
+    <div class="course-list">
+
+      <div class="course-item">
+        <span class="course-badge badge-beginner">初心者</span>
+        <div class="course-body">
+          <h3>スタートアップコース（まずはここから）</h3>
+          <p>PC立ち上げ・マウス操作・タイピング練習・ファイル管理・Excelへのデータ入力まで。パソコンをはじめて触るお子様でも安心して始められます。</p>
         </div>
-    </section>
+      </div>
 
-    <section id="contact" class="cta-section">
-        <h2>お問い合わせ・ご相談</h2>
-        <p style="font-size: 1.3em; margin-bottom: 40px;">まずは、無料で相談・体験から始めてみませんか？<br>
-        お子様の可能性を、一緒に見つけましょう。</p>
-        <a href="mailto:your-email@example.com" class="btn-cta">無料で相談してみる</a>
-    </section>
+      <div class="course-item">
+        <span class="course-badge badge-advanced">応用</span>
+        <div class="course-body">
+          <h3>Excel 関数コース</h3>
+          <p>SUM・VLOOKUP・IF関数など、実務でよく使う関数を実例を交えて学びます。データ集計や業務効率化の基礎になります。</p>
+        </div>
+      </div>
 
-</div>
+      <div class="course-item">
+        <span class="course-badge badge-advanced">応用</span>
+        <div class="course-body">
+          <h3>VBA（マクロ）コース</h3>
+          <p>Excelの繰り返し作業を自動化。勤怠管理表など実際の業務で使えるマクロを作成します（講師の実務実績あり）。</p>
+        </div>
+      </div>
+
+      <div class="course-item">
+        <span class="course-badge badge-advanced">応用</span>
+        <div class="course-body">
+          <h3>データベース（DB）コース</h3>
+          <p>データベースはSalesforceだけでなく、JavaなどあらゆるITシステムに欠かせない技術です。SQLの基礎から、データの仕組みをしっかり理解することで、どんな現場でも通用するITスキルの土台が身につきます。</p>
+        </div>
+      </div>
+
+      <div class="course-item">
+        <span class="course-badge badge-advanced">応用</span>
+        <div class="course-body">
+          <h3>Java 基礎コース</h3>
+          <p>プログラミングの考え方を基礎からていねいに。変数・条件分岐・ループなど、システム開発の核となる知識を習得します。</p>
+        </div>
+      </div>
+
+      <div class="course-item">
+        <span class="course-badge badge-advanced">応用</span>
+        <div class="course-body">
+          <h3>Webサイトコース</h3>
+          <p>Webページの仕組みを作りながら学びます。使用技術：<span class="code-tag">HTML</span><span class="code-tag">JavaScript</span>。自分で作ったページがブラウザに表示される達成感が学習のモチベーションになります。</p>
+        </div>
+      </div>
+
+      <div class="course-item goal">
+        <span class="course-badge badge-goal">目標</span>
+        <div class="course-body">
+          <h3>Salesforce コース（資格取得レベル）</h3>
+          <p>国内企業での需要が高いSalesforceを、運用保守経験のある講師が基礎から資格取得レベルまで指導。就労・キャリアへの大きな強みになります。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 料金 -->
+  <section id="pricing" class="pricing-section">
+    <div class="section-label">Pricing</div>
+    <div class="section-title">料金プラン</div>
+    <div class="section-sub">60分 ／ 訪問個別レッスン ／ 土日祝日対応</div>
+    <div class="price-grid">
+
+      <div class="price-card">
+        <div class="price-card-label">初めてのお子様向け</div>
+        <div class="price-card-name">スタートアップコース</div>
+        <div class="price-amount">¥3,500<sub> / 回</sub></div>
+        <div class="price-monthly">月4回の場合 ¥14,000 / 月</div>
+        <ul class="price-items">
+          <li>PC立ち上げ〜基本操作</li>
+          <li>タイピング練習</li>
+          <li>Excelデータ入力まで</li>
+          <li>完全マンツーマン（60分）</li>
+          <li>ご自宅への訪問対応</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-label">スキルを伸ばしたい方</div>
+        <div class="price-card-name">スキルアップコース</div>
+        <div class="price-amount">¥5,000<sub> / 回</sub></div>
+        <div class="price-monthly">月4回の場合 ¥20,000 / 月</div>
+        <ul class="price-items">
+          <li>Excel関数 / VBA / DB</li>
+          <li>Java基礎 / Webサイト制作</li>
+          <li>Salesforce（資格対応）</li>
+          <li>完全マンツーマン（60分）</li>
+          <li>ご自宅への訪問対応</li>
+          <li>目標に合わせた個別プラン</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-label">まず試したい方</div>
+        <div class="price-card-name">体験レッスン</div>
+        <div class="price-amount">¥1,500<sub> / 回</sub></div>
+        <div class="price-monthly">初回1回限り・60分</div>
+        <ul class="price-items">
+          <li>雰囲気を体験できる初回限定</li>
+          <li>お子様の様子を見ながら相談</li>
+          <li>継続の義務なし</li>
+          <li>ご自宅への訪問対応</li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="price-note">
+      <strong>交通費について：</strong>駐車場がある場合は交通費無料。駐車場がない場合はパーキング代を実費にて別途ご請求します。<br>
+      <strong>対応日：</strong>土曜・日曜・祝日のみ（平日は対応不可）
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 対応エリア -->
+  <section id="area">
+    <div class="section-label">Area</div>
+    <div class="section-title">対応エリア</div>
+    <div class="section-sub">大阪府南部（泉州エリア）を中心に訪問します</div>
+    <div class="area-box">
+      <p class="area-desc">以下のエリアへ講師が直接ご自宅へ伺います。</p>
+      <div class="area-tags">
+        <span class="area-tag">高石市</span>
+        <span class="area-tag">和泉市</span>
+        <span class="area-tag">泉大津市</span>
+        <span class="area-tag">忠岡町</span>
+        <span class="area-tag">岸和田市</span>
+        <span class="area-tag consult">堺市（近隣は相談可）</span>
+      </div>
+      <p class="area-note">上記エリア以外の方もまずはご相談ください。駐車場がない場合はパーキング代（実費）を別途いただきます。</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 訪問レッスン -->
+  <section class="visit-section">
+    <div class="section-label">Visit Lesson</div>
+    <div class="section-title">訪問個別レッスン</div>
+    <div class="section-sub">まずはお子様が安心できる場所から</div>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <div class="visit-icon">👤</div>
+        <h3>完全マンツーマン</h3>
+        <p>他のお子様を気にせず、その日の状態に合わせて柔軟に進めます</p>
+      </div>
+      <div class="visit-card">
+        <div class="visit-icon">🏠</div>
+        <h3>ご自宅へ訪問</h3>
+        <p>慣れた環境で学べるので、初めてでも緊張しにくい安心設計</p>
+      </div>
+      <div class="visit-card">
+        <div class="visit-icon">📅</div>
+        <h3>スケジュール柔軟対応</h3>
+        <p>体調や気分の波があっても大丈夫。日程・時間のご相談に応じます</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 講師紹介 -->
+  <section id="profile">
+    <div class="section-label">Profile</div>
+    <div class="section-title">講師紹介</div>
+    <div class="section-sub">IT業界での実務経験と、わが子の子育てから生まれた教室です</div>
+    <div class="profile-box">
+      <div class="profile-head">
+        <div class="avatar">IT</div>
+        <div class="profile-head-info">
+          <h3>講師</h3>
+          <p>IT業界経験5年 ／ 発達障害の子を持つ親 ／ Salesforce運用保守経験</p>
+        </div>
+      </div>
+      <p class="profile-text">
+        自身の子供も発達障害があり、親として向き合ってきた経験が指導の土台にあります。Salesforce・VBA・React/PHPなどの実務経験を活かし、基礎から資格取得レベルまで丁寧にサポートします。
+      </p>
+      <div class="skill-tags">
+        <span class="skill-tag">Salesforce 運用保守・資格対応</span>
+        <span class="skill-tag">Excel / VBA</span>
+        <span class="skill-tag">Java / JavaScript</span>
+        <span class="skill-tag">HTML / Web制作</span>
+        <span class="skill-tag">VB.net</span>
+        <span class="skill-tag">React / PHP 開発</span>
+        <span class="skill-tag">IT業界 5年</span>
+        <span class="skill-tag">発達障害の子を持つ親</span>
+      </div>
+      <div class="profile-note">
+        現在、知り合いのお子様への指導を開始予定です。少人数・丁寧な個別対応で、一緒に成長しましょう。まずはお気軽にご相談ください。
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 授業の流れ -->
+  <section class="flow-section">
+    <div class="section-label">Flow</div>
+    <div class="section-title">授業の流れ</div>
+    <div class="section-sub">初めてのお子様でも安心できるステップで進めます</div>
+    <div class="flow-steps">
+      <div class="flow-item">
+        <div class="flow-num">1</div>
+        <h4>無料相談</h4>
+        <p>お子様の特性・ご要望をじっくりお聞きします</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">2</div>
+        <h4>体験レッスン</h4>
+        <p>ご自宅へ訪問。¥1,500で気軽に体験できます</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">3</div>
+        <h4>個別プラン作成</h4>
+        <p>お子様専用のカリキュラムを一緒に作ります</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">4</div>
+        <h4>継続サポート</h4>
+        <p>成長に合わせて目標レベルを引き上げます</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section id="contact" class="contact-section">
+    <h2>まずは気軽にご相談ください</h2>
+    <p>
+      「うちの子に合うかな？」「どのコースから始めればいい？」<br>
+      どんな些細なことでもお気軽に。無料相談・体験レッスン受付中です。
+    </p>
+    <a href="mailto:sakuraotoa4444@gmail.com" class="contact-btn">
+      ✉ sakuraotoa4444@gmail.com
+    </a>
+    <p class="contact-note">返信まで数日いただく場合があります。お急ぎの方もまずはメールにてご連絡ください。</p>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <p>© 2025 キッズITラボ　｜　土日祝日のみ対応　｜　泉州エリア中心に訪問個別レッスン</p>
+    <p style="margin-top:6px">高石市 ／ 和泉市 ／ 泉大津市 ／ 忠岡町 ／ 岸和田市（堺市近隣も相談可）</p>
+  </footer>
 
 </body>
 </html>
