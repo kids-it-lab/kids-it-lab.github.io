@@ -268,6 +268,39 @@
       font-size: 13px;
       color: var(--purple-600);
       font-weight: 500;
+      margin-top: 12px;
+    }
+
+    /* メリットリスト用スタイル */
+    .benefit-list {
+      list-style: none;
+      margin: 24px 0;
+      padding-left: 0;
+    }
+    .benefit-item {
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 20px;
+    }
+    .benefit-item::before {
+      content: '■';
+      position: absolute;
+      left: 0;
+      color: var(--purple-600);
+      font-size: 12px;
+      top: 4px;
+    }
+    .benefit-item strong {
+      display: block;
+      color: var(--text-main);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .benefit-item span {
+      display: block;
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.6;
     }
 
     /* ===== COURSES ===== */
@@ -317,16 +350,6 @@
       font-size: 13px;
       color: var(--text-sub);
       line-height: 1.7;
-    }
-    .code-tag {
-      display: inline-block;
-      background: var(--gray-200);
-      color: var(--gray-600);
-      font-family: 'Courier New', monospace;
-      font-size: 11px;
-      padding: 1px 7px;
-      border-radius: 4px;
-      margin: 0 2px;
     }
 
     /* ===== PRICING ===== */
@@ -692,19 +715,39 @@
     <div class="container">
       <div class="section-label">Message</div>
       <div class="section-title">講師からのメッセージ</div>
-      <div class="section-sub">AIは「道具」。使いこなす「人」の力を伸ばしたい</div>
+      <div class="section-sub">AI時代を生き抜く「武器」と「自信」を。</div>
       <div class="message-box">
         <p>
-          生成AIの登場により、ITのあり方は激変しました。しかし、どれだけAIが進化しても、最後のアウトプットをレビュー（評価）し、責任を持って決断するのは「人」にしかできません。
+          私自身の子供も発達障害があります。親として日々試行錯誤する中で、子供の将来について真剣に考えるようになりました。
         </p>
         <p>
-          生成AIはとても便利です。ですが、便利なAIを使うのは私たち「人」です。「人」の指示（プロンプト）が曖昧だとAIの答え（アウトプット）も曖昧になり、期待している結果とは違う（誤った結果）になります。
+          その中でたどり着いたのが、<strong>「子供の将来のために、まずは自分がITスキルを身につけよう」</strong>という決断でした。そして、私は転職を決意しました。
         </p>
         <p>
-          私自身の子供も発達障害があります。親として試行錯誤する中で、子供の将来のことを考えました。その時に「子供の将来の為、ITの技術をまず自分が身に付けよう」と思いました。「子供が将来困らないように」っと思われている親御様も多いかと思います。私はもっと早くに学びたかったと思いました。
+          同じように「子供が将来困らないように」と考えている親御様も多いのではないでしょうか。私自身、「もっと早くから学んでいればよかった」と強く感じています。
         </p>
+
+        <ul class="benefit-list">
+          <li class="benefit-item">
+            <strong>自信につながる</strong>
+            <span>小さな成功体験を積み重ねることで、「できた！」という感覚が増え、自己肯定感が育ちます。</span>
+          </li>
+          <li class="benefit-item">
+            <strong>考える力が身につく</strong>
+            <span>プログラミングは「順序立てて考える力」を育てるため、日常生活や学習にも良い影響があります。</span>
+          </li>
+          <li class="benefit-item">
+            <strong>得意を伸ばせる</strong>
+            <span>発達特性のある子どもは、興味のある分野に強い集中力を発揮します。ITはその強みを活かしやすい分野です。</span>
+          </li>
+          <li class="benefit-item">
+            <strong>将来の選択肢が広がる</strong>
+            <span>ITスキルは在宅勤務や柔軟な働き方にもつながりやすく、将来の可能性を大きく広げてくれます。</span>
+          </li>
+        </ul>
+
         <p>
-          最新のAI活用スキルと、5年の実務経験、そしてわが子への深い理解を掛け合わせ、お子様が社会で必要とされる「唯一無二の力」を育む手助けをさせていただきます。
+          このように、早い段階で基礎に触れることは、単なるスキル習得にとどまらず、子どもの<strong>「生きる力」</strong>を育てることにもつながります。最新のAI活用スキルと実務経験、そしてわが子への深い理解を掛け合わせ、全力でサポートさせていただきます。
         </p>
         <div class="message-name">— キッズITラボ 講師</div>
       </div>
@@ -887,41 +930,6 @@
           <span class="skill-tag">Salesforce 運用保守・資格対応</span>
           <span class="skill-tag">IT業界 5年</span>
         </div>
-        <div class="profile-note">
-          最新のAI関連検定も複数取得しております。「AIに仕事を奪われる」のではなく、「AIを使いこなして価値を生む」大人へ。最新の知見をお子様向けに分かりやすくお伝えします。
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <section class="flow-section">
-    <div class="container">
-      <div class="section-label">Flow</div>
-      <div class="section-title">授業の流れ</div>
-      <div class="section-sub">安心できるスモールステップで進めます</div>
-      <div class="flow-steps">
-        <div class="flow-item">
-          <div class="flow-num">1</div>
-          <h4>無料相談</h4>
-          <p>お子様の特性や将来への思い、今感じている不安を丁寧にお聞きします</p>
-        </div>
-        <div class="flow-item">
-          <div class="flow-num">2</div>
-          <h4>体験レッスン</h4>
-          <p>ご自宅へ訪問。レッスンの雰囲気や講師との相性を実際にご確認ください</p>
-        </div>
-        <div class="flow-item">
-          <div class="flow-num">3</div>
-          <h4>個別プラン作成</h4>
-          <p>興味関心に合わせ、「AI活用」や「基礎習得」など最適な計画を立てます</p>
-        </div>
-        <div class="flow-item">
-          <div class="flow-num">4</div>
-          <h4>継続サポート</h4>
-          <p>「できた！」の成功体験を積み上げ、確かな自信と将来の力を育みます</p>
-        </div>
       </div>
     </div>
   </section>
@@ -936,7 +944,6 @@
       <a href="mailto:kids.it.lab@gmail.com" class="contact-btn">
         ✉ kids.it.lab@gmail.com
       </a>
-      <p class="contact-note">返信まで数日いただく場合があります。まずはメールにてご連絡ください。</p>
     </div>
   </section>
 
