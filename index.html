@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>キッズITラボ | プロが教える発達障害の子向けPC教室</title>
+    <style>
+        /* 全体のスタイル */
+        :root {
+            --main-color: #3498db; /* 信頼感のある青 */
+            --accent-color: #e67e22; /* 親しみやすいオレンジ */
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: #fff;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 4px solid var(--main-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--main-color);
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+
+        /* セクション共通 */
+        section {
+            background: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--main-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+        }
+
+        /* リストスタイル */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* 講師紹介セクション（ここが重要！） */
+        .profile-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #eaf2f8;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .profile-icon {
+            font-size: 4em;
+            background: #fff;
+            border-radius: 50%;
+            padding: 10px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skill-tags {
+            margin-top: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #fff;
+            color: var(--main-color);
+            border: 1px solid var(--main-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* 実績セクション */
+        .case-study {
+            background: #fffcf5;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ffe699;
+        }
+
+        /* お問い合わせ */
+        .cta-box {
+            text-align: center;
+            background: var(--main-color);
+            color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .cta-box h2 {
+            color: #fff;
+            border: none;
+            padding: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.2em;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #d35400;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2em; }
+            .profile-box { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>キッズITラボ</h1>
+        <p>「好きなこと」を「将来の武器」に。</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <section id="about">
+        <h2>発達障害のある子ども向けのPC教室です。</h2>
+        <p>キッズITラボでは、お子様の特性に合わせて、パソコンの基本操作から、将来仕事で役立つ本格的なITスキルまでを個別に指導します。</p>
+        <p>「集中力が続かない」「コミュニケーションが苦手」そんなお子様でも、ITの世界なら、自分のペースで輝くことができます。</p>
+    </section>
+
+    <section id="program">
+        <h2>こんなことをやります</h2>
+        <ul>
+            <li><strong>タイピング練習：</strong> 全ての基本となるタイピングを、ゲーム感覚で楽しくマスターします。</li>
+            <li><strong>パソコンの基本操作：</strong> フォルダ操作、インターネットリテラシー、セキュリティなど、必須の知識を学びます。</li>
+            <li><strong>将来につながるITスキル：</strong> Word/Excelの活用から、簡単なプログラミング、Salesforceのようなビジネスツールの基礎まで。</li>
+        </ul>
+    </section>
+
+    <section id="teacher">
+        <h2>講師の経験</h2>
+        <p>IT業界で長年培った技術と実務の経験を、わかりやすく伝えます。</p>
+        <div class="profile-box">
+            <div class="profile-icon">👨‍💻</div>
+            <div>
+                <h3>IT業界歴 5年以上のプロフェッショナル</h3>
+                <p>ReactやPHPを使った本格的なシステム開発を1年8カ月経験。また、Salesforceの運用保守やVBA（勤怠管理表の作成など）、VB.net、Excel関数といった実務で必須のスキルを網羅しています。</p>
+                <div class="skill-tags">
+                    <span class="tag">React / PHP / VB.net</span>
+                    <span class="tag">Salesforce（運用保守）</span>
+                    <span class="tag">VBA / Excel関数</span>
+                    <span class="tag">IT実務経験5年+</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cases">
+        <h2>実績</h2>
+        <div class="case-study">
+            <p><strong>現在、第1号の生徒様への指導を開始予定です！</strong><br>
+            発達障害（軽度）のお子様に、タイピングの基礎から丁寧に教えていきます。<br>
+            上達の様子をこちらでレポートしていきます。</p>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-box">
+        <h2>お問い合わせ・ご相談</h2>
+        <p>まずは、無料で相談・体験から始めてみませんか？<br>
+        お子様の可能性を、一緒に見つけましょう。</p>
+        <a href="mailto:your-email@example.com" class="btn">メールで問い合わせる</a>
+    </section>
+
+</div>
+
+</body>
+</html>
